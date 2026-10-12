@@ -1,0 +1,160 @@
+/* ---------------------------------------------------------------------------
+   lcars-book theme.
+
+   The book is dark and uses the same palette as the shell it builds, so the
+   colours you read about are the colours you see.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* our palette - shared with the components */
+  --lc-gold:        #ffcc66;
+  --lc-amber:       #ff9966;
+  --lc-violet:      #9999ff;
+  --lc-lilac:       #cc99cc;
+  --lc-ember:       #cc6666;
+  --lc-rust:        #cc6633;
+  --lc-plum:        #4e3579;
+  --lc-plum-bright: #a98cd8;
+  --lc-sky:         #99ccff;
+
+  --lc-bg:          #0b0b10;
+  --lc-panel:       #14141c;
+  --lc-panel-2:     #1c1c26;
+  --lc-line:        #2a2a38;
+  --lc-text:        #cfcfe0;
+  --lc-dim:         #7a7a90;
+
+  /* VitePress overrides */
+  --vp-c-brand-1: var(--lc-gold);
+  --vp-c-brand-2: var(--lc-amber);
+  --vp-c-brand-3: var(--lc-amber);
+}
+
+.dark {
+  --vp-c-bg:          var(--lc-bg);
+  --vp-c-bg-alt:      #0e0e14;
+  --vp-c-bg-soft:     var(--lc-panel);
+  --vp-c-bg-elv:      var(--lc-panel-2);
+  --vp-c-divider:     var(--lc-line);
+  --vp-c-gutter:      var(--lc-line);
+  --vp-c-text-1:      var(--lc-text);
+  --vp-c-text-2:      #a0a0b4;
+  --vp-c-text-3:      var(--lc-dim);
+  --vp-code-bg:       var(--lc-panel-2);
+}
+
+body {
+  background: var(--lc-bg);
+}
+
+/* ---- headings -------------------------------------------------------------
+   LCARS is all caps and heavy; the headings carry a little of that without
+   making the prose unreadable. */
+
+.vp-doc h1 {
+  border-bottom: 3px solid var(--lc-gold);
+  padding-bottom: 10px;
+}
+
+.vp-doc h2 {
+  border-top: none;
+  border-bottom: 1px solid var(--lc-line);
+  padding-bottom: 6px;
+  margin-top: 44px;
+}
+
+.vp-doc h2::before,
+.vp-doc h3::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  background: var(--lc-amber);
+  vertical-align: middle;
+  margin-right: 10px;
+  margin-bottom: 3px;
+}
+
+/* ---- inline code ---------------------------------------------------------- */
+
+.vp-doc :not(pre) > code {
+  background: var(--lc-panel-2);
+  color: var(--lc-gold);
+  border: 1px solid var(--lc-line);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ---- code blocks ---------------------------------------------------------- */
+
+.vp-doc div[class*='language-'] {
+  border: 1px solid var(--lc-line);
+  border-radius: 4px;
+  background: var(--lc-panel-2);
+}
+
+/* ---- tables -------------------------------------------------------------- */
+
+.vp-doc table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.vp-doc th {
+  background: var(--lc-panel-2);
+  color: var(--lc-gold);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+.vp-doc th,
+.vp-doc td {
+  border: 1px solid var(--lc-line);
+  padding: 7px 11px;
+}
+
+/* ---- callouts VitePress provides natively --------------------------------- */
+
+.vp-doc .custom-block.tip    { border-color: var(--lc-violet); }
+.vp-doc .custom-block.warning { border-color: var(--lc-amber); }
+.vp-doc .custom-block.danger  { border-color: var(--lc-ember); }
+
+/* ---- this book's additions ------------------------------------------------ */
+
+:root {
+  /* correctness - used by every checking component, so "yes" and "no" never
+     change colour between chapters */
+  --lc-ok:  var(--lc-sky);
+  --lc-bad: var(--lc-ember);
+}
+
+/* The interactive widgets are wide by nature: a grid, a trace table, an SVG
+   plot. Let them use the whole column rather than the prose measure. */
+.vp-doc .og,
+.vp-doc .sp,
+.vp-doc .cs,
+.vp-doc .rs,
+.vp-doc .bo,
+.vp-doc .tt,
+.vp-doc .eq,
+.vp-doc .qz {
+  max-width: 100%;
+}
+
+/* Tables inside widgets are data, not prose. */
+.vp-doc .sp__table table td,
+.vp-doc .tt table td {
+  vertical-align: middle;
+}
+
+/* A quiet divider between two ideas on a long page. */
+.vp-doc hr {
+  border: none;
+  border-top: 1px solid var(--lc-line);
+  margin: 40px 0;
+}
+
+/* Worksheet quotations should not look like code the reader must type. */
+.vp-doc .pc {
+  font-family: var(--vp-font-family-mono, monospace);
+  color: var(--lc-gold);
+}

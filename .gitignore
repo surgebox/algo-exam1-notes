@@ -1,0 +1,10 @@
+# the shared install lives in ../lcars-book; CI installs its own
+node_modules
+
+# build output and VitePress caches
+docs/.vitepress/dist
+docs/.vitepress/cache
+
+# editor / OS noise
+.DS_Store
+*.swp

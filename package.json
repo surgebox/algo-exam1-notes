@@ -1,0 +1,15 @@
+{
+  "name": "algo-exam1-book",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Algorithm Analysis Exam 1 - an interactive review book built around the practice questions",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
